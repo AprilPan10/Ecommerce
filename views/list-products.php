@@ -9,7 +9,6 @@ $products =  $s->getAllProducts(Database::getDb());
 if(isset($_POST['id'])){
     $id = $_POST['id'];
 }
-
 ?>
 <?php if($role=="admin") {?>
     <div class="space">
@@ -23,8 +22,8 @@ if(isset($_POST['id'])){
                     <div class="thumbnail">
                         <img src='./images/<?= $product->url; ?>' alt="Product" class="Product" height="200" />
                         <div class="caption">
-                            <a href="single-product.php?id=<?= $product->id; ?>"><?= $product->name; ?></a>
-                             <h4>$<?= $product->price; ?></h4>
+                            <a href="single-product.php?id=<?= $product->id; $_SESSION['productid'] =$product->id ?>"><?= $product->name;  $_SESSION['name']=$product->name;?></a>
+                             <h4>$<?= $product->price; $_SESSION['price']=$product->price; ?></h4>
                         </div>
                         <?php if($role=="admin") {?>
                                 <div id="buttons" class="mobile">

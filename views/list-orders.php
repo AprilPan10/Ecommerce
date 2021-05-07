@@ -11,7 +11,7 @@ if(!isset($_SESSION['username'])){
 $dbcon =Database::getDb();
 $u = new Cart();
 $orders =  $u->getAllOrders(Database::getDb());
-$userid =$_SESSION['userid'];
+//$userid =$_SESSION['userid'];
 $total = 0;
 ?>
     <h3 class="title">Order List</h3>
