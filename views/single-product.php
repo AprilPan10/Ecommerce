@@ -11,9 +11,11 @@ if(isset($_GET['id'])){
     $s = new Product();
     $product = $s->getProductById($id, $db);
     $name =  $product->name;
+    $_SESSION['name']=$name;
     $type = $product->type;
     $description = $product->description;
     $price = $product->price;
+    $_SESSION['price']=$price;
 }
 ?>
 <?php
@@ -80,7 +82,17 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
             <h4>Details</h4>
             <p>Type: <?= $type; ?></p>
             <p><?= $description; ?></p>
-            <button class="button">$<?= $price; ?> - Purchase</button>
+            <?php if($role=="user" ||$role == "admin") {?>
+            <form action="add-order.php" method="post">
+                <input type="hidden" name="id" value="<?= $id; ?>"/>
+                <input type="submit"  name="submit" value="$<?= $price; ?> - Purchase" class="button"/>
+            </form>
+            <?php } else {   ?>
+            <form action="login.php" method="post">
+                <input type="hidden" name="id" value="<?= $id; ?>"/>
+                <input type="submit"  name="submit" value="$<?= $price; ?> - Purchase" class="button"/>
+            </form>
+            <?php } ?>
         </div>
     </div>
 </div>

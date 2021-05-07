@@ -20,7 +20,7 @@
                     <h2 id="site-name">
 
                         <a href="../justprint/index.php">
-                            <img src="Images/justPrint_logo%20copy.png" alt="a logo of just print" width="250"/>
+                            <img src="images/justPrint_logo%20copy.png" alt="a logo of just print" width="250"/>
 
                         </a>
                     </h2>
@@ -28,14 +28,20 @@
                 <nav id="main-navigation">
                     <h3 class="hidden">Main navigation</h3>
 
-                    <button class="menu-toggle" onclick="toggleMenu()"><img src="Images/icons8-menu.png" width="50"/></button>
+                    <button class="menu-toggle" onclick="toggleMenu()"><img src="images/icons8-menu.png" width="50"/></button>
                     <ul class="menu">
                         <li><a href="../justprint/index.php">Home</a></li>
                         <li><a href="list-users.php">My Account</a></li><!-- log in as user-->
                         <li><a href="login.php" class="button-link">Log in</a></li>
                         <li><a href="logout.php">Log out</a></li>
-                        <li><img src="Images/shopping-cart.svg" width="50" class="shopping-cart"/></li>
-
+                        <li><a href="list-orders.php"><img src="images/shopping-cart.svg" width="50" class="shopping-cart"/></a></li>
+                        <li><?php
+                            if(isset($_SESSION["orders"])){
+                                echo $_SESSION["orders"];
+                            } else {
+                                echo 0;
+                            }
+                            ?></li>
                     </ul>
                 </nav>
             </div>

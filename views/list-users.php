@@ -43,6 +43,8 @@ if($role=="admin"){
                     <input type="hidden" name="id"  value="<?= $user->id; ?>"/>
                     <input type="submit"  name="deleteUser" value="Delete" class="button-color links"/>
                 </form>
+                <a href="single-order.php?id=<?= $user->id; ?>" class="button-color links">Orders</a>
+                <?php $_SESSION['userid'] = $user->id; ?>
             </div>
         </div>
     <?php } }else if($role=="user"){

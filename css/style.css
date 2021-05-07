@@ -426,6 +426,13 @@ label{
     margin: 0 auto;
     text-decoration: none;
 }
+.orderlist{
+    display: block;
+    border-bottom: #000 solid 1px;
+    margin: 1em auto;
+    width:300px;
+    padding: 1em;
+}
 /* 6. MEDIA QUERIES */
 /* Tablet styles */
 @media screen and (max-width: 1150px) {

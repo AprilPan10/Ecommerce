@@ -43,7 +43,17 @@ if(isset($_POST['id'])){
                         </div>
                         <?php }?>
                         <?php if($role!="admin") {?>
-                        <button type="button" class="button">Buy</button>
+                            <?php if($role=="user") {?>
+                                <form action="add-order.php" method="post">
+                                    <input type="hidden" name="id" value="<?= $product->id; ?>"/>
+                                    <input type="submit"  name="submit" value="Buy" class="button"/>
+                                </form>
+                            <?php } else {   ?>
+                                <form action="login.php" method="post">
+                                    <input type="hidden" name="id" value="<?= $product->id; ?>"/>
+                                    <input type="submit"  name="submit" value="Buy" class="button"/>
+                                </form>
+                            <?php } ?>
                         <?php }?>
                     </div>
                 </div>
