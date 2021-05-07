@@ -9,3 +9,4 @@
 - [X] Use Paypal api to process the payment 
 
 - [X] future: ajax to change shopping cart number, and calculate total amount
+  <img src="images/v1.jpg" />
