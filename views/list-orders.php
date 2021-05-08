@@ -30,8 +30,8 @@ $total = 0;
     </div>
 <?php  } } ?>
 <div><h4 class="title">Order Total:  </br> $ <?php
-
-        echo  $totalamount=$orders[0]->price + $orders[1]->price +$orders[2]->price + +$orders[3]->price;
+$num1= $orders[0]->id;
+        echo  $totalamount=$orders[$num1]->price + $orders[1]->price +$orders[2]->price + +$orders[3]->price;
         $_SESSION['amount'] = $totalamount;
 
 ?>
