@@ -433,6 +433,11 @@ label{
     width:300px;
     padding: 1em;
 }
+.centers{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
 /* 6. MEDIA QUERIES */
 /* Tablet styles */
 @media screen and (max-width: 1150px) {

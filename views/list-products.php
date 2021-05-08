@@ -1,7 +1,6 @@
 <?php
 use justprint\model\{Database, Product};
 require_once 'vendor/autoload.php';
-session_start();
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 $dbcon = Database::getDb();
 $s = new Product();

@@ -85,12 +85,12 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
             <?php if($role=="user" ||$role == "admin") {?>
             <form action="add-order.php" method="post">
                 <input type="hidden" name="id" value="<?= $id; ?>"/>
-                <input type="submit"  name="submit" value="$<?= $price; ?> - Purchase" class="button"/>
+                <input type="submit"  name="submit" value="$<?= $price; ?> - Purchase" class="button centers"/>
             </form>
             <?php } else {   ?>
             <form action="login.php" method="post">
                 <input type="hidden" name="id" value="<?= $id; ?>"/>
-                <input type="submit"  name="submit" value="$<?= $price; ?> - Purchase" class="button"/>
+                <input type="submit"  name="submit" value="$<?= $price; ?> - Purchase" class="button centers"/>
             </form>
             <?php } ?>
         </div>
@@ -188,6 +188,3 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
             <?php } } }?>
 
         </div>
-
-
-
