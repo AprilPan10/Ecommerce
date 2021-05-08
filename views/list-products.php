@@ -22,8 +22,8 @@ if(isset($_POST['id'])){
                     <div class="thumbnail">
                         <img src='./images/<?= $product->url; ?>' alt="Product" class="Product" height="200" />
                         <div class="caption">
-                            <a href="single-product.php?id=<?= $product->id; $_SESSION['productid'] =$product->id ?>"><?= $product->name;  $_SESSION['name']=$product->name;?></a>
-                             <h4>$<?= $product->price; $_SESSION['price']=$product->price; ?></h4>
+                            <a href="single-product.php?id=<?= $product->id; ?>"><?= $product->name;?></a>
+                             <h4>$<?= $product->price; ?></h4>
                         </div>
                         <?php if($role=="admin") {?>
                                 <div id="buttons" class="mobile">
@@ -43,10 +43,10 @@ if(isset($_POST['id'])){
                         <?php }?>
                         <?php if($role!="admin") {?>
                             <?php if($role=="user") {?>
-                                <form action="add-order.php" method="post">
-                                    <input type="hidden" name="id" value="<?= $product->id; ?>"/>
+                                <!--<form action="add-order.php" method="post">
+                                    <input type="hidden" name="id" value="<?/*= $product->id; $_SESSION['productid'] =$product->id; $_SESSION['name']=$product->name;  $_SESSION['price']=$product->price; */?>"/>
                                     <input type="submit"  name="submit" value="Buy" class="button"/>
-                                </form>
+                                </form>-->
                             <?php } else {   ?>
                                 <form action="login.php" method="post">
                                     <input type="hidden" name="id" value="<?= $product->id; ?>"/>

@@ -11,9 +11,10 @@ if(isset($_POST['submit'])) {
     $price = $_SESSION['price'];
     $name = $_SESSION['name'];
     $user_id = $_SESSION['id'];
+    $status = "unpaid";
     $dbcon = Database::getDb();
     $u = new Cart();
-    $s = $u->addOrder($product_id,$user_id, $name,$price,$dbcon);
+    $s = $u->addOrder($product_id,$user_id, $name,$price,$status,$dbcon);
     if ($s) {
         header("Location:list-orders.php");
     } else {

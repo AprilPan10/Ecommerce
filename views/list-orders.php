@@ -16,13 +16,14 @@ $total = 0;
 ?>
     <h3 class="title">Order List</h3>
 <?php foreach($orders as $order) { ?>
-    <?php if($user_id==$order->user_id) { ?>
+    <?php if($user_id==$order->user_id && $order->status == "unpaid") { ?>
     <div class="orderlist">
         <p>Order Number: <?= $order->id; $_SESSION['orderid'] = $order->id;?></p>
         <p>Product Id: <?= $order->product_id; ?></p>
         <p>User Id: <?= $order->user_id; ?></p>
         <p>Product Price: <?= $order->price; ?></p>
         <p>Product Name: <?= $order->name; ?></p>
+        <p>Status: <?= $order->status; ?></p>
         <form action="../justprint/views/delete-order.php" method="post">
             <input type="hidden" name="id" value="<?= $order->id; ?>"/>
             <input type="submit"  name="submit" value="Delete" class="button"/>
@@ -40,9 +41,9 @@ $num1= $orders[0]->id;
 define('PAYPAL_API_URL', 'https://api-m.sandbox.paypal.com');
 
 $PAYPAL = array(
-    'client_id' => 'AcI5aCApUBluBrAsFAtNaLWNEqwPY-TnQZKslisJVYlI-Gv0EJ9qoRIhml4ZV3qm98hWQK9OtOfTvPzu',
-    'client_secret' => 'EJu9tc-Gp6zEx6yZFvoC4Iz2qcbN6XnOVF5lYNpI9OtG-dWFbxn16pGR3eI655ttPIdA__bZ6l6SlAsW',
-    'redirect_uri' => 'https://localhost/HTTP5203-lab9-ShimengPan/paypal.php'
+    'client_id' => '',
+    'client_secret' => '',
+    'redirect_uri' => ''
 );
 get_token($PAYPAL);
 create_order($PAYPAL);
@@ -89,7 +90,7 @@ function capture_order($config) {
     $status = isset($result) ? $result : '';
     if (property_exists($status, 'status')){
         if($status->status == "COMPLETED"){
-            echo '<p> Thanks for  ordering with us!</p></br>';
+            echo '<div class="center"><h4> Thanks for  ordering with us!</h4></div></br>';
         }
     }
 }
@@ -106,7 +107,7 @@ function create_order($config) {
             array(
                 'amount' => array(
                     'currency_code' => "CAD",
-                    'value' =>  "5.00"
+                    'value' =>  (string)$_SESSION['amount']
                 )
             )
         ),

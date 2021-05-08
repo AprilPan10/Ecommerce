@@ -11,13 +11,14 @@ class Cart{
         $orders= $pdostm->fetchAll(\PDO::FETCH_OBJ);
         return $orders;
     }
-    public function addOrder($product_id,$user_id, $name,$price,$dbcon){
-        $sql="INSERT INTO orders (product_id, user_id,name,price) VALUE (:product_id, :user_id,:name, :price)";
+    public function addOrder($product_id,$user_id, $name,$price,$status,$dbcon){
+        $sql="INSERT INTO orders (product_id, user_id,name,price,status) VALUE (:product_id, :user_id,:name, :price,:status)";
         $pdostm = $dbcon->prepare($sql);
         $pdostm->bindParam(':product_id',$product_id);
         $pdostm->bindParam(':user_id',$user_id);
         $pdostm->bindParam(':name',$name);
         $pdostm->bindParam(':price',$price);
+        $pdostm->bindParam(':status',$status);
         $count = $pdostm->execute();
         return $count;
     }
@@ -42,6 +43,14 @@ class Cart{
         $pdostm->bindParam(':id', $id);
         $pdostm->execute();
         return  $pdostm->fetch(\PDO::FETCH_OBJ);
+    }
+    public function approveOrder($id,$status,$dbcon){
+        $sql = "UPDATE orders SET  status = :status WHERE id= :id";
+        $pdostm = $dbcon->prepare($sql);
+        $pdostm->bindParam(':id', $id);
+        $pdostm->bindParam(':status',$status);
+        $count = $pdostm->execute();
+        return $count;
     }
 
 }
