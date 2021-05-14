@@ -8,6 +8,11 @@ if(!isset($_SESSION['username'])){
 }
 if(isset($_POST['id'])){
     $id = $_POST['id'];
+    foreach ($_SESSION['cart'] as $key => $value) {
+        if ($id == $_POST['id']) {
+            unset($_SESSION['cart'][$key]);
+        }
+    }
     $dbcon =Database::getDb();
     $r = new Cart();
     $count = $r->deleteOrder($id,$dbcon);

@@ -2,7 +2,6 @@
 //list orders
 use justprint\model\{Database, Cart,User};
 require_once 'vendor/autoload.php';
-session_start();
 $user_id = isset($_SESSION['id'] ) ? $_SESSION['id'] : '';
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 if(!isset($_SESSION['username'])){
@@ -29,16 +28,22 @@ $total = 0;
             <input type="submit"  name="submit" value="Delete" class="button"/>
         </form>
     </div>
+       <?php $total = $total + (double)$order->price; ?>
 <?php  } } ?>
-<div><h4 class="title">Order Total:  </br> $ <?php
-$num1= $orders[0]->id;
-        echo  $totalamount=$orders[$num1]->price + $orders[1]->price +$orders[2]->price + +$orders[3]->price;
-        $_SESSION['amount'] = $totalamount;
+<?Php
+//$_SESSION['price']=array(); // Declaring session array
+//array_push($_SESSION['price'],$orders); // Items added to cart
 
 ?>
+<div><h4 class="title">Order Total:  </br> $ <?php
+
+        echo $total;
+?>
     </h4></div>
+<!--<p>Product Price: --><?php //$price = array($_SESSION['price']); var_dump($price); foreach ($price as $key){echo $key;} ?><!--</p>-->
+
 <?php
-define('PAYPAL_API_URL', 'https://api-m.sandbox.paypal.com');
+/*define('PAYPAL_API_URL', 'https://api-m.sandbox.paypal.com');
 
 $PAYPAL = array(
     'client_id' => '',
@@ -106,4 +111,4 @@ function create_order($config) {
     print ' <div class="center"><a rel="' . $result->links[1]->rel . '" href="' . $result->links[1]->href . '"  class="button-link links">Paypal</a></div>';
     $_SESSION['orderid'] = $result->id;
 }
-?>
+*/?>

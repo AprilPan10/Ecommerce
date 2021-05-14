@@ -2,7 +2,6 @@
 //admin and users can both add user
 use justprint\model\{Database, User};
 require_once 'vendor/autoload.php';
-session_start();
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }

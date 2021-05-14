@@ -2,7 +2,6 @@
 use justprint\model\{Database, User};
 require_once 'vendor/autoload.php';
 
-session_start();
 //Redirect if logged in
 if(isset($_SESSION['username'])){
     header('Location: list-users.php');

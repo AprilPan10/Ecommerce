@@ -3,7 +3,6 @@
 use justprint\model\{Database, Review};
 require_once 'vendor/autoload.php';
 require_once "Library/form-functions.php";
-session_start();
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }

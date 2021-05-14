@@ -3,7 +3,6 @@
 use justprint\model\{Database, Review};
 require_once 'vendor/autoload.php';
 require_once 'Library/form-functions.php';
-session_start();
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }
@@ -102,7 +101,7 @@ if(isset($_POST['updReview'])){
             </div>
             <div class="col-12">
                 <button class="button" type="submit" name="updReview">Submit</button>
-                <a href="../Phase4/list-products.php" class="button-color links">Back to list</a>
+                <a href="./index.php" class="button-color links">Back to list</a>
             </div>
         </div>
     </form>

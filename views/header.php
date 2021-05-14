@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,11 +37,14 @@
                         <li><a href="logout.php">Log out</a></li>
                         <li><a href="list-orders.php"><img src="images/shopping-cart.svg" width="50" class="shopping-cart"/></a></li>
                         <li><?php
-                            if(isset($_SESSION["orders"])){
-                                echo $_SESSION["orders"];
-                            } else {
-                                echo 0;
+
+                            if (isset($_SESSION['cart'])){
+                                $count = count($_SESSION['cart']);
+                                echo "<span>$count</span>";
+                            }else{
+                                echo "<span>0</span>";
                             }
+
                             ?></li>
                     </ul>
                 </nav>

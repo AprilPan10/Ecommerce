@@ -19,7 +19,7 @@ class Database{
                 self::$dbcon->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
             }catch (\PDOException $e) {
                 $msg = $e->getMessage();
-                include '../custom-error.php';
+                //include '../custom-error.php';
                 exit();
             }
 

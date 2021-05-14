@@ -1,5 +1,4 @@
 <?php
-session_start();
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 ?>
 <div class="wrapper">
@@ -8,7 +7,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
             <h2>Download,<span class="special">just print it</span> at home</h2>
             <hr>
             <div class="space pre">
-                <a href="" class="button-shop links">View shopping cart</a>
+                <a href="../justprint/list-orders.php" class="button-shop links">View shopping cart</a>
                 <?php if($role!="user" && $role != "admin") {?>
                 <a href="../justprint/signup.php" class="button button-color links">Create your account</a>
                 <?php } else { ?><a href="list-users.php" class="button button-color links">Create your account</a> <?php }?>

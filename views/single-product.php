@@ -1,7 +1,6 @@
 <?php
 use justprint\model\{Database, Product, Review, Image};
 require_once 'vendor/autoload.php';
-session_start();
 $user_id = isset($_SESSION['id'] ) ? $_SESSION['id'] : '';
 $name = $type = $description = $price = "";
 if(isset($_GET['id'])){
