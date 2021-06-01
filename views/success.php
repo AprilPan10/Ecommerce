@@ -1,4 +1,8 @@
 <?php
+
+?>
+
+<?php
 define('PAYPAL_API_URL', 'https://api-m.sandbox.paypal.com');
 
 $PAYPAL = array(
@@ -50,7 +54,8 @@ function capture_order($config) {
     $status = isset($result) ? $result : '';
     if (property_exists($status, 'status')){
         if($status->status == "COMPLETED"){
-        echo '<div class="title"><h4> Thanks for  ordering with us!</h4></div></br>';
+        echo '<div class="title"><h4> Thanks for ordering with us!</h4></div></br>';
+
         
         }
     }
