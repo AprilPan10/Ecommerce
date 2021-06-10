@@ -6,8 +6,8 @@
 define('PAYPAL_API_URL', 'https://api-m.sandbox.paypal.com');
 
 $PAYPAL = array(
-    'client_id' => 'AcI5aCApUBluBrAsFAtNaLWNEqwPY-TnQZKslisJVYlI-Gv0EJ9qoRIhml4ZV3qm98hWQK9OtOfTvPzu',
-    'client_secret' => 'EJu9tc-Gp6zEx6yZFvoC4Iz2qcbN6XnOVF5lYNpI9OtG-dWFbxn16pGR3eI655ttPIdA__bZ6l6SlAsW',
+    'client_id' => '',
+    'client_secret' => '',
     'redirect_uri' => 'https://justprint.space/success.php'
 );
 get_token($PAYPAL);
